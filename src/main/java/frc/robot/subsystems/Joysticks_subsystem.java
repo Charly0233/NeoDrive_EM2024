@@ -1,6 +1,3 @@
-public class Joysticks {
-    public class Joysticks extends package frc.robot.subsystems;
-
 package frc.robot.subsystems; 
 
 import com.revrobotics.CANSparkMax; 
@@ -10,18 +7,21 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import edu.wpi.first.math.controller.PIDController; 
 
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+public class Joysticks_subsystem extends SubsystemBase {
 
-public class ExampleSubsystem extends SubsystemBase {
+  private static final CANSparkMax motor = new CANSparkMax(11, MotorType.kBrushless);
+
   /** Creates a new ExampleSubsystem. */
-  public ExampleSubsystem() {
+  public Joysticks_subsystem() {
+
+    
     
   }
 
-  @Override
-  public void periodic(double _input) {
+  public void interval(double _input) {
     // This method will be called once per scheduler run
+
     motor.set(_input);
   }
 
@@ -57,4 +57,3 @@ public class ExampleSubsystem extends SubsystemBase {
 }
 
 */
-}

@@ -5,14 +5,14 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DriveTrain;
-import frc.robot.ccommandds.Joysticks;
+import frc.robot.subsystems.*;
+import frc.robot.commands.Joysticks;
 
 public class Robot extends TimedRobot {
   
   private final XboxController controller = new XboxController(0);
   private final DriveTrain swerve = DriveTrain.getInstance();
-    private final Joysticks joysticks = new Joysticks(controller);
-    private final double DEADBAND = 0;
+  private final double DEADBAND = 0;
   private boolean FieldRelativeTeleop = true;
 
   private Spark leftMotor1 = new Spark(0);
@@ -28,6 +28,9 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     SmartDashboard.putBoolean("FieldRelativeTeleop", FieldRelativeTeleop);
 
+  @Override
+  public void robotPeriodic(){
+    swerve.periodic();
   } 
 
   @Override
