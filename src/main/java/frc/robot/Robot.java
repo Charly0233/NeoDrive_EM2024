@@ -8,6 +8,9 @@ import frc.robot.commands.DriveTrain;
 import frc.robot.commands.exampleCommand;
 import frc.robot.subsystems.*;
 
+
+
+
 public class Robot extends TimedRobot {
   
   private final XboxController controller = new XboxController(0);
@@ -26,7 +29,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotPeriodic(){
-
+    SmartDashboard.putBoolean("Bridge Limit", true);
     swerve.periodic();
   } 
 
